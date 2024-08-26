@@ -1,0 +1,32 @@
+{
+"auth":{
+    "db_password":"@@sl8998",
+    "jwt_secret_key":"bricks"
+},
+"logparams":{
+    "log_directory":   "logs",
+	"log_info"       : "info.log",
+	"log_error"      : "error.log",
+	"log_warning"    : "warning.log",
+	"log_debug"      : "debug.log",
+	"log_max_size_mb"    : 25,
+	"log_maxbackups" : 5,
+	"logmaxage"     : 30,
+	"LogCompress"   : true,
+    "LocalTime"     : true
+},
+"postgresparams":{
+    "host":"localhost",
+    "port":"5432",
+    "user":"postgres",
+    "db_name":"test1"
+
+},
+"appparams":{
+    "gin_mode":"release",
+    "port_run":"8484",
+    "server_url":"localhost",
+    "server_name":"todo_list"
+}
+
+}
