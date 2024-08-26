@@ -1,14 +1,16 @@
 package service
 
 import (
+	"Todolist/configs"
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 )
 
 // Секретный ключ для подписания токенов
-var secretKey = []byte("bricks")
+var secretKey = []byte(os.Getenv("JWT_SECRET_KEY"))
 
 // CustomClaims определяет кастомные поля токена
 type CustomClaims struct {
@@ -23,8 +25,8 @@ func GenerateToken(userID uint, username string) (string, error) {
 		UserID:   userID,
 		Username: username,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Hour * 1).Unix(), // токен истекает через 1 час
-			Issuer:    "todolist",
+			ExpiresAt: time.Now().Add(time.Minute * time.Duration(configs.AppSettings.AuthParams.JwtTtlMinutes)).Unix(), // токен истекает через 1 час
+			Issuer:    configs.AppSettings.AppParams.ServerName,
 		},
 	}
 

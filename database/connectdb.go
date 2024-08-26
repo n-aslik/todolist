@@ -1,7 +1,9 @@
 package database
 
 import (
+	"Todolist/configs"
 	"fmt"
+	"os"
 
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"gorm.io/driver/postgres"
@@ -11,7 +13,13 @@ import (
 var conn *gorm.DB
 
 func ConnectDB() error {
-	connstr := "host=localhost port=5432 user=postgres password=@@sl8998 dbname=test1 sslmode=disable"
+	connstr := fmt.Sprintf("host=%s port=%s user=%s  dbname=%s password=%s",
+		configs.AppSettings.PostgresParams.Host,
+		configs.AppSettings.PostgresParams.Port,
+		configs.AppSettings.PostgresParams.User,
+		configs.AppSettings.PostgresParams.Database,
+		os.Getenv("DB_PASSWORD"),
+	)
 	db, err := gorm.Open(postgres.Open(connstr), &gorm.Config{})
 	if err != nil {
 		return err
