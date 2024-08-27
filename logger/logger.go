@@ -85,13 +85,12 @@ func Init() error {
 		Compress:   logParams.Compress, // disabled by default
 		LocalTime:  logParams.LocalTime,
 	}
+	Info = log.New(gin.DefaultWriter, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+	Error = log.New(lumberLogError, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+	Warn = log.New(lumberLogWarn, "WARN: ", log.Ldate|log.Ltime|log.Lshortfile)
+	Debug = log.New(lumberLogDebug, "DEBUG: ", log.Ldate|log.Ltime|log.Lshortfile)
 
 	gin.DefaultWriter = io.MultiWriter(os.Stdout, lumberLogInfo)
-
-	Info.SetOutput(gin.DefaultWriter)
-	Error.SetOutput(lumberLogError)
-	Warn.SetOutput(lumberLogWarn)
-	Debug.SetOutput(lumberLogDebug)
 
 	return nil
 }
