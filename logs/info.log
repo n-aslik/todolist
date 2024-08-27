@@ -111,3 +111,51 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2024/08/27 - 07:01:02 | 401 |       398.9µs |       127.0.0.1 | POST     "/tasks"
 [GIN] 2024/08/27 - 07:02:35 | 200 |      1.1005ms |       127.0.0.1 | POST     "/auth/sign-in"
 [GIN] 2024/08/27 - 07:04:34 | 401 |       109.8µs |       127.0.0.1 | POST     "/tasks"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> Todolist/package/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> Todolist/package/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> Todolist/package/controllers.SignIn (3 handlers)
+[GIN-debug] POST   /users                    --> Todolist/package/controllers.AddUsers (3 handlers)
+[GIN-debug] GET    /users                    --> Todolist/package/controllers.PrintUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> Todolist/package/controllers.PrintUsersByID (3 handlers)
+[GIN-debug] PUT    /users/:id                --> Todolist/package/controllers.EditUsers (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> Todolist/package/controllers.EditUsersPassword (3 handlers)
+[GIN-debug] DELETE /users/:id                --> Todolist/package/controllers.DeleteUsers (3 handlers)
+[GIN-debug] POST   /tasks                    --> Todolist/package/controllers.AddTask (4 handlers)
+[GIN-debug] GET    /tasks                    --> Todolist/package/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> Todolist/package/controllers.GetAllTasksByID (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> Todolist/package/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> Todolist/package/controllers.ChecksasDone (4 handlers)
+[GIN-debug] DELETE /tasks/:id                --> Todolist/package/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8484
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> Todolist/package/controllers.PingPong (3 handlers)
+[GIN-debug] POST   /auth/sign-up             --> Todolist/package/controllers.SignUp (3 handlers)
+[GIN-debug] POST   /auth/sign-in             --> Todolist/package/controllers.SignIn (3 handlers)
+[GIN-debug] POST   /users                    --> Todolist/package/controllers.AddUsers (3 handlers)
+[GIN-debug] GET    /users                    --> Todolist/package/controllers.PrintUsers (3 handlers)
+[GIN-debug] GET    /users/:id                --> Todolist/package/controllers.PrintUsersByID (3 handlers)
+[GIN-debug] PUT    /users/:id                --> Todolist/package/controllers.EditUsers (3 handlers)
+[GIN-debug] PATCH  /users/:id                --> Todolist/package/controllers.EditUsersPassword (3 handlers)
+[GIN-debug] DELETE /users/:id                --> Todolist/package/controllers.DeleteUsers (3 handlers)
+[GIN-debug] POST   /tasks                    --> Todolist/package/controllers.AddTask (4 handlers)
+[GIN-debug] GET    /tasks                    --> Todolist/package/controllers.GetAllTasks (4 handlers)
+[GIN-debug] GET    /tasks/:id                --> Todolist/package/controllers.GetAllTasksByID (4 handlers)
+[GIN-debug] PUT    /tasks/:id                --> Todolist/package/controllers.UpdateTaskByID (4 handlers)
+[GIN-debug] PATCH  /tasks/:id                --> Todolist/package/controllers.ChecksasDone (4 handlers)
+[GIN-debug] DELETE /tasks/:id                --> Todolist/package/controllers.DeleteTaskByID (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:8484
