@@ -28,28 +28,6 @@ func Init() error {
 		}
 	}
 
-	fileInfo, err := os.OpenFile(configs.AppSettings.LogParams.LogInfo, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		return err
-	}
-	fileError, err := os.OpenFile(configs.AppSettings.LogParams.LogError, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		return err
-	}
-	fileWarn, err := os.OpenFile(configs.AppSettings.LogParams.LogWarn, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		return err
-	}
-	fileDebug, err := os.OpenFile(configs.AppSettings.LogParams.LogDebug, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		return err
-	}
-
-	Info = log.New(fileInfo, "", log.Ldate|log.Lmicroseconds)
-	Error = log.New(fileError, "", log.Ldate|log.Lmicroseconds)
-	Warn = log.New(fileWarn, "", log.Ldate|log.Lmicroseconds)
-	Debug = log.New(fileDebug, "", log.Ldate|log.Lmicroseconds)
-
 	lumberLogInfo := &lumberjack.Logger{
 		Filename:   fmt.Sprintf("%s/%s", logParams.LogDirectory, logParams.LogInfo),
 		MaxSize:    logParams.MaxSizeMegabytes, // megabytes
