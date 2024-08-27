@@ -20,8 +20,9 @@ var (
 )
 
 func Init() error {
-	if _, err := os.Stat("logs"); os.IsNotExist(err) {
-		err = os.Mkdir("logs", 0755)
+	logParams := configs.AppSettings.LogParams
+	if _, err := os.Stat(logParams.LogDirectory); os.IsNotExist(err) {
+		err = os.Mkdir(logParams.LogDirectory, 0755)
 		if err != nil {
 			return err
 		}
@@ -43,7 +44,7 @@ func Init() error {
 	if err != nil {
 		return err
 	}
-	logParams := configs.AppSettings.LogParams
+
 	Info = log.New(fileInfo, "", log.Ldate|log.Lmicroseconds)
 	Error = log.New(fileError, "", log.Ldate|log.Lmicroseconds)
 	Warn = log.New(fileWarn, "", log.Ldate|log.Lmicroseconds)
