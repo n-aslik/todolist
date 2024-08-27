@@ -1,27 +1,27 @@
 {
 "auth":{
-    "db_password":"@@sl8998",
-    "jwt_secret_key":"bricks"
+    "jwt_secret_key":"bricks",
+    "jwt_ttl_minutes":60
 },
-"logparams":{
+"log_params":{
     "log_directory":   "logs",
 	"log_info"       : "info.log",
 	"log_error"      : "error.log",
 	"log_warning"    : "warning.log",
 	"log_debug"      : "debug.log",
-	"log_max_size_mb"    : 25,
-	"log_maxbackups" : 5,
-	"logmaxage"     : 30,
-	"LogCompress"   : true,
-    "LocalTime"     : true
+	"max_size_mb"    : 25,
+	"max_backups" : 5,
+	"max_age"     : 30,
+	"compress"   : true,
+    "local_time"     : true
 },
-"postgresparams":{
+"postgres_params":{
     "host":"localhost",
     "port":"5432",
     "user":"postgres",
-    "db_name":"test1"
+    "database":"test1"
 },
-"appparams":{
+"app_params":{
     "gin_mode":"release",
     "port_run":"8484",
     "server_url":"localhost",

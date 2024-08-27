@@ -13,7 +13,7 @@ import (
 var conn *gorm.DB
 
 func ConnectDB() error {
-	connstr := fmt.Sprintf("host=%s port=%s user=%s  dbname=%s password=%s",
+	connstr := fmt.Sprintf(`host=%s port=%s user=%s  database=%s password=%s`,
 		configs.AppSettings.PostgresParams.Host,
 		configs.AppSettings.PostgresParams.Port,
 		configs.AppSettings.PostgresParams.User,
