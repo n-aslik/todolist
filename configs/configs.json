@@ -22,7 +22,7 @@
     "database":"test1"
 },
 "app_params":{
-    "gin_mode":"release",
+    "gin_mode":"debug",
     "port_run":"8484",
     "server_url":"localhost",
     "server_name":"todo_list"
