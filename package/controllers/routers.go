@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"Todolist/configs"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -9,6 +11,7 @@ import (
 func Run() error {
 
 	router := gin.Default()
+	gin.SetMode(configs.AppSettings.AppParams.GinMode)
 	router.GET("/ping", PingPong)
 
 	auth := router.Group("/auth")
@@ -36,7 +39,7 @@ func Run() error {
 		tasksG.DELETE("/:id", DeleteTaskByID)
 	}
 
-	err := router.Run(":8484")
+	err := router.Run(fmt.Sprintf("%s:%s", configs.AppSettings.AppParams.ServerURL, configs.AppSettings.AppParams.PortRun))
 	if err != nil {
 		panic(err)
 	}
