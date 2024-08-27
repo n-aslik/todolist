@@ -1,6 +1,7 @@
 package service
 
 import (
+	"Todolist/errs"
 	"Todolist/models"
 	"Todolist/package/repository"
 	"Todolist/utils"
@@ -8,9 +9,12 @@ import (
 )
 
 func CreateUser(user models.User) error {
-	_, err := repository.GetUserByUsernameAndPassword(user.Username, user.Password)
+	_, err := repository.GetUserByUsername(user.Username)
 	if err != nil {
 		fmt.Println(err)
+	}
+	if user.ID > 0 {
+		return errs.ErrUsernameUniquenessFailed
 	}
 	user.Password = utils.GenerateHash(user.Password)
 
