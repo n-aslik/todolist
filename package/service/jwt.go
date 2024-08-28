@@ -22,7 +22,7 @@ func GenerateToken(userID uint, username string) (string, error) {
 		UserID:   userID,
 		Username: username,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute * time.Duration(configs.AppSettings.AuthParams.JwtTtlMinutes)).Unix(), // токен истекает через 1 час
+			ExpiresAt: time.Now().Add(time.Hour * time.Duration(configs.AppSettings.AuthParams.JwtTtlHours)).Unix(), // токен истекает через 1 час
 			Issuer:    configs.AppSettings.AppParams.ServerName,
 		},
 	}
