@@ -17,7 +17,6 @@ func AddTask(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid data"})
 		return
 	}
-	logger.Info.Printf("")
 
 	err = service.AddTask(newtask)
 	if err != nil {
