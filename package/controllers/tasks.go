@@ -11,13 +11,14 @@ import (
 )
 
 func AddTask(c *gin.Context) {
+	uid := c.GetUint(userIDCtx)
 	var newtask models.Task
 	err := c.BindJSON(&newtask)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid data"})
 		return
 	}
-
+	newtask.UserID = int(uid)
 	err = service.AddTask(newtask)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid data"})
