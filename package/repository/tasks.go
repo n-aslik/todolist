@@ -10,6 +10,7 @@ func InsertTasks(task models.Task) error {
 	err := database.GetconnectDB().Create(&task).Error
 	if err != nil {
 		logger.Error.Printf("[service.addtask]error in added task %s\n", err.Error())
+
 	}
 	return nil
 }
@@ -33,7 +34,7 @@ func GetAllTasks(isdeleted, isdone, isblocked bool, id uint) (task []models.Task
 	err = database.GetconnectDB().Preload("User").Joins("Join users ON users.id=tasks.user_id").Where("tasks.is_deleted=? AND tasks.is_done=?", isdeleted, isdone).Where("tasks.user_id=?", id).Order("tasks.id").Where("users.is_blocked=? AND users.is_deleted=?", isblocked, isdeleted).Find(&task).Error
 	if err != nil {
 		logger.Error.Printf("[service.getalltasks]error in getting all task %s\n", err.Error())
-		return task, err
+		return task, translateErrors(err)
 	}
 	return task, nil
 }
@@ -41,7 +42,7 @@ func GetAllTasksByID(isdeleted, isblocked bool, tid, uid uint) (task []models.Ta
 	err = database.GetconnectDB().Preload("User").Joins("Join users ON users.id=tasks.user_id").Where("tasks.is_deleted=?", isdeleted).Where("tasks.id=? AND tasks.user_id=?", tid, uid).Where("users.is_blocked=? AND users.is_deleted=?", isblocked, isdeleted).Find(&task).Error
 	if err != nil {
 		logger.Error.Printf("[service.getalltasksbyid]error in getting all task by id %s\n", err.Error())
-		return task, err
+		return task, translateErrors(err)
 	}
 	return task, nil
 }
