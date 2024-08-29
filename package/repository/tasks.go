@@ -14,8 +14,8 @@ func InsertTasks(task models.Task) error {
 	}
 	return nil
 }
-func EditTasks(title, description string, id int) error {
-	err := database.GetconnectDB().Save(&models.Task{ID: id, Title: title, Description: description}).Error
+func EditTasks(title, description string, userid, id int) error {
+	err := database.GetconnectDB().Save(&models.Task{ID: id, Title: title, Description: description, UserID: userid}).Error
 	if err != nil {
 		logger.Error.Printf("[service.updatetask]error in update task %s\n", err.Error())
 	}
