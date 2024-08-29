@@ -1,7 +1,6 @@
 {
 "auth":{
-    "jwt_secret_key":"bricks",
-    "jwt_ttl_hours":1
+    "jwt_secret_key":"bricks"
 },
 "log_params":{
     "log_directory":   "logs",

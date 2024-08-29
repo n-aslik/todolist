@@ -5,7 +5,7 @@ type Task struct {
 	Title       string
 	Description string
 	UserID      int  `gorm:"references users(id)" json:"User_ID"`
-	User        User `gorm:"foreignKey:UserID" json:"user_name"`
+	User        User `gorm:"foreignKey:UserID" json:"user"`
 	IsDone      bool `gorm:"default false" json:"Is_Done"`
 	IsDeleted   bool `gorm:"default false" json:"Is_Deleted"`
 }
