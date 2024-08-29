@@ -14,7 +14,7 @@ func AddTask(task models.Task) error {
 	return nil
 }
 func UpdateTask(task models.Task, id int) error {
-	err := repository.EditTasks(task.Title, task.Description, task.UserID, id)
+	err := repository.EditTasks(task.Title, task.Description, id)
 	if err != nil {
 		fmt.Println(err)
 	}
